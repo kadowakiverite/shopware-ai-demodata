@@ -43,4 +43,20 @@ class CurrencyRepository
                 Context::createDefaultContext()
             )->first();
     }
+
+    /**
+     * @return CurrencyEntity
+     */
+    public function getDefaultCurrency(): CurrencyEntity
+    {
+        $criteria = (new Criteria())
+            ->addFilter(new EqualsFilter('id', Defaults::CURRENCY))
+            ->setLimit(1);
+
+        return $this->repository
+            ->search(
+                $criteria,
+                Context::createDefaultContext()
+            )->first();
+    }
 }

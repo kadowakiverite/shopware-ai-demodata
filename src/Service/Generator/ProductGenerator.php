@@ -243,8 +243,11 @@ class ProductGenerator
         } else {
             $salesChannel = $this->repoSalesChannel->getStorefrontSalesChannel();
         }
-        $tax = $this->repoTaxes->getTaxEntity(19);
-        $currency = $this->repoCurrency->getCurrencyEuro();
+//        $tax = $this->repoTaxes->getTaxEntity(19);
+        $tax = $this->repoTaxes->getDefaultTaxEntity();
+
+//        $currency = $this->repoCurrency->getCurrencyEuro();
+        $currency = $this->repoCurrency->getDefaultCurrency();
 
 
         $imageSource = __DIR__ . '/../../Resources/files/product/default.png';
